@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles } from "lucide-react";
+import heroImg from "@/assets/hero-mockup.jpg";
 
 const slides = [
   { eyebrow: "Premium Web Studio", title: "Building Premium\nDigital Experiences", sub: "We craft high-performance websites that elevate brands and convert visitors into loyal customers." },
