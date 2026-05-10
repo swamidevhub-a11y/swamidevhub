@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 import { ArrowRight } from "lucide-react";
+import ctaBg from "@/assets/cta-bg.jpg";
 
 export function CTA() {
   return (
@@ -8,8 +9,10 @@ export function CTA() {
       <div className="container-luxe">
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-gold/30 bg-ink p-12 text-center shadow-luxe md:p-20">
-            <div className="absolute inset-0 -z-10 opacity-60" style={{ background: "var(--gradient-radial)" }} />
-            <div className="absolute -inset-x-20 -bottom-20 -z-10 h-60 opacity-30 blur-3xl" style={{ background: "var(--gradient-gold)" }} />
+            <img src={ctaBg} alt="" aria-hidden="true" loading="lazy" width={1920} height={800}
+              className="absolute inset-0 -z-10 h-full w-full object-cover opacity-30" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-ink via-ink/85 to-ink/70" />
+            <div className="absolute -inset-x-20 -bottom-20 -z-10 h-60 opacity-25 blur-3xl" style={{ background: "var(--gradient-gold)" }} />
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Let's build</p>
             <h2 className="mt-4 font-display text-4xl leading-tight md:text-6xl">
               Ready to build your <span className="text-gold">premium</span><br/>digital presence?

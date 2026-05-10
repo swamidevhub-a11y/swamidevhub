@@ -40,20 +40,14 @@ function About() {
               subtitle="Swami Dev Hub is a boutique freelancing studio specializing in premium web development. We blend strategy, design and engineering to ship work that moves the needle." />
           </div>
           <Reveal>
-            <div className="glass-card relative aspect-[4/3] overflow-hidden rounded-3xl p-2 shadow-luxe">
-              <div className="h-full w-full rounded-2xl bg-gradient-to-br from-gold/30 via-card to-ink p-8">
-                <p className="font-display text-3xl">Our mission</p>
-                <p className="mt-3 text-muted-foreground">To make world-class web design accessible to every ambitious brand — from boutique startups to established enterprises.</p>
-                <div className="mt-8 grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border border-gold/30 p-4">
-                    <p className="text-xs uppercase tracking-widest text-gold">Vision</p>
-                    <p className="mt-2 text-sm">Be the most trusted web studio in our region.</p>
-                  </div>
-                  <div className="rounded-xl border border-gold/30 p-4">
-                    <p className="text-xs uppercase tracking-widest text-gold">Promise</p>
-                    <p className="mt-2 text-sm">Premium quality. Honest pricing. On time.</p>
-                  </div>
-                </div>
+            <div className="relative">
+              <div className="absolute -inset-4 -z-10 rounded-[32px] opacity-40 blur-3xl" style={{ background: "var(--gradient-gold)" }} />
+              <div className="overflow-hidden rounded-3xl border border-gold/30 shadow-luxe">
+                <img src={studioImg} alt="Swami Dev Hub studio workspace" loading="lazy" width={1280} height={960} className="aspect-[4/3] w-full object-cover" />
+              </div>
+              <div className="glass-card absolute -bottom-6 -left-6 max-w-[260px] rounded-2xl p-5 shadow-luxe">
+                <p className="text-xs uppercase tracking-widest text-gold">Our Mission</p>
+                <p className="mt-2 text-sm text-muted-foreground">Make world-class web design accessible to every ambitious brand.</p>
               </div>
             </div>
           </Reveal>
