@@ -1,0 +1,181 @@
+.video-banner {
+  position: relative;
+  width: 100%;
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: clamp(1.5rem, 5vw, 3rem);
+}
+
+.video-banner--default {
+  min-height: clamp(260px, 45vh, 520px);
+}
+
+.video-banner--tall {
+  min-height: clamp(320px, 60vh, 640px);
+}
+
+.video-banner--short {
+  min-height: clamp(220px, 32vh, 400px);
+}
+
+.video-banner--align-center .video-banner__content {
+  text-align: center;
+  align-items: center;
+}
+
+.video-banner--align-left .video-banner__content {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.video-banner__background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.video-banner__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-banner__image-fallback {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  animation: video-banner__image-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes video-banner__image-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.video-banner__gradient-fallback {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0b0b0b 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.video-banner__gradient-fallback--overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75));
+  animation: none;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.video-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.9)
+  );
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.video-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: min(960px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.video-banner__breadcrumb {
+  font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(249, 250, 251, 0.8);
+}
+
+.video-banner__heading {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.video-banner__subtitle {
+  font-size: clamp(0.95rem, 1.4vw, 1.125rem);
+  line-height: 1.6;
+  color: rgba(229, 231, 235, 0.88);
+  max-width: 44rem;
+}
+
+.video-banner__heading span {
+  color: #1db4c5;
+}
+
+@keyframes bannerFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.video-banner__text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation-name: bannerFadeUp;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: forwards;
+}
+
+.video-banner__text--delay-1 {
+  animation-delay: 0.2s;
+}
+
+.video-banner__text--delay-2 {
+  animation-delay: 0.4s;
+}
+
+.video-banner__text--delay-3 {
+  animation-delay: 0.6s;
+}
+
+@media (max-width: 640px) {
+  .video-banner {
+    padding-inline: 1.25rem;
+  }
+
+  .video-banner__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .video-banner--align-left .video-banner__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+

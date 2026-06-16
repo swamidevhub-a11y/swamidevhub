@@ -1,0 +1,186 @@
+/* Section background effects – different animation per section */
+
+.section-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-effect__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-effect__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 1. Bento: animated gradient mesh */
+.section-effect--bento .section-effect__bg {
+  background: linear-gradient(135deg, #0a0a0a 0%, #171717 25%, #0f0f0f 50%, #1a1a1a 75%, #0a0a0a 100%);
+  background-size: 400% 400%;
+  animation: section-mesh 18s ease infinite;
+}
+
+@keyframes section-mesh {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.section-effect--bento .section-effect__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(29, 180, 197, 0.06) 0%, transparent 50%);
+  animation: section-glow-pulse 6s ease-in-out infinite;
+}
+
+@keyframes section-glow-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* 2. About/Intro: soft moving dots / grid */
+.section-effect--about .section-effect__bg {
+  background: #000;
+}
+
+.section-effect--about .section-effect__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(29, 180, 197, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  animation: section-grid-move 20s linear infinite;
+}
+
+@keyframes section-grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(24px, 24px); }
+}
+
+/* 3. Methodology: diagonal shimmer lines */
+.section-effect--methodology .section-effect__bg {
+  background: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%);
+}
+
+.section-effect--methodology .section-effect__bg::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: repeating-linear-gradient(
+    105deg,
+    transparent,
+    transparent 60px,
+    rgba(29, 180, 197, 0.03) 60px,
+    rgba(29, 180, 197, 0.03) 61px
+  );
+  animation: section-shimmer 25s linear infinite;
+}
+
+@keyframes section-shimmer {
+  0% { transform: translateX(-30%) translateY(-30%); }
+  100% { transform: translateX(30%) translateY(30%); }
+}
+
+/* 4. Tech stack: circuit / scan line effect */
+.section-effect--tech .section-effect__bg {
+  background: linear-gradient(180deg, #0f0f0f 0%, #141414 50%, #0f0f0f 100%);
+  background-size: 100% 200%;
+  animation: section-tech-bg 12s ease-in-out infinite;
+}
+
+@keyframes section-tech-bg {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 0 100%; }
+}
+
+.section-effect--tech .section-effect__bg::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(29, 180, 197, 0.4), transparent);
+  box-shadow: 0 0 20px rgba(29, 180, 197, 0.3);
+  animation: section-scan 4s ease-in-out infinite;
+}
+
+@keyframes section-scan {
+  0%, 100% { top: 0; opacity: 0.6; }
+  50% { top: 100%; opacity: 1; }
+}
+
+/* 5. Reviews: subtle noise / film grain */
+.section-effect--reviews .section-effect__bg {
+  background: #000;
+}
+
+.section-effect--reviews .section-effect__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: section-noise 0.5s steps(10) infinite;
+}
+
+@keyframes section-noise {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-10px, -10px); }
+}
+
+/* 6. Newsletter: flowing gradient border glow */
+.section-effect--newsletter .section-effect__bg {
+  background: linear-gradient(90deg, #0a0a0a 0%, #171717 20%, #1a1a0a 40%, #171717 60%, #0f0f0a 80%, #0a0a0a 100%);
+  background-size: 300% 100%;
+  animation: section-flow 15s ease infinite;
+}
+
+@keyframes section-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.section-effect--newsletter .section-effect__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(29, 180, 197, 0.04) 50%, transparent 100%);
+  animation: section-glow-pulse 5s ease-in-out infinite;
+}
+
+/* 7. Page sections (About, Contact, etc.): soft radial + slow shift */
+.section-effect--page .section-effect__bg {
+  background: linear-gradient(160deg, #0a0a0a 0%, #141414 40%, #0f0f0f 100%);
+  background-size: 200% 200%;
+  animation: section-page-bg 20s ease infinite;
+}
+
+@keyframes section-page-bg {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.section-effect--page .section-effect__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 70% 30%, rgba(29, 180, 197, 0.05) 0%, transparent 50%);
+  animation: section-glow-pulse 8s ease-in-out infinite;
+}
+
+/* 8. Demo/Grid pages: subtle gradient wave */
+.section-effect--demo .section-effect__bg {
+  background: linear-gradient(180deg, #0a0a0a 0%, #171717 30%, #141414 70%, #0a0a0a 100%);
+  background-size: 100% 300%;
+  animation: section-demo-wave 18s ease-in-out infinite;
+}
+
+@keyframes section-demo-wave {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 0 50%; }
+}

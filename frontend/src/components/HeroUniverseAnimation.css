@@ -1,0 +1,154 @@
+/* No card/border – transparent, blends with hero background */
+.hero-universe {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.hero-universe__stars {
+  position: absolute;
+  inset: -20%;
+  width: 140%;
+  height: 140%;
+  left: -20%;
+  top: -20%;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-universe__earth-wrap {
+  position: relative;
+  z-index: 2;
+  width: 55%;
+  max-width: 180px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: hero-universe-float 8s ease-in-out infinite;
+}
+
+/* Orbits – inner static, outer circles continuously */
+.hero-universe__orbit {
+  position: absolute;
+  border: 1px solid rgba(29, 180, 197, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero-universe__orbit--1 {
+  width: 130%;
+  height: 130%;
+  border-color: rgba(29, 180, 197, 0.4);
+  /* No rotation – inner circle stays fixed */
+}
+
+.hero-universe__orbit--2 {
+  width: 175%;
+  height: 175%;
+  border-color: rgba(29, 180, 197, 0.25);
+  /* Circling effect only on outside circle */
+  animation: hero-universe-orbit 24s linear infinite;
+}
+
+/* Small circles on the orbit path – sit on the ring, rotate with orbit */
+.hero-universe__orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: rgba(29, 180, 197, 0.9);
+  box-shadow: 0 0 8px rgba(29, 180, 197, 0.6);
+  transform-origin: center center;
+}
+
+.hero-universe__orbit-dot--inner {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+  background: rgba(29, 180, 197, 0.85);
+}
+
+.hero-universe__orbit-dot--outer {
+  width: 8px;
+  height: 8px;
+  background: rgba(29, 180, 197, 0.75);
+}
+
+/* Center: website designing image (circular) */
+.hero-universe__center {
+  position: relative;
+  width: 52%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(29, 180, 197, 0.3);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.hero-universe__center-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-universe__glow {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(29, 180, 197, 0.06) 0%, transparent 65%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: hero-universe-glow 6s ease-in-out infinite;
+}
+
+@keyframes hero-universe-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+@keyframes hero-universe-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-universe-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}

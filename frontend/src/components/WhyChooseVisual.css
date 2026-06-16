@@ -1,0 +1,69 @@
+.why-choose-visual {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.why-choose-visual__svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 24px rgba(29, 180, 197, 0.2));
+}
+
+.why-choose-visual__ring--outer {
+  animation: why-choose-pulse 4s ease-in-out infinite;
+}
+
+.why-choose-visual__circle {
+  animation: why-choose-pulse 4s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.why-choose-visual__circle--inner {
+  animation-delay: 0.6s;
+}
+
+.why-choose-visual__triangle {
+  animation: why-choose-pulse 4s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.why-choose-visual__leaf {
+  animation: why-choose-glow 3s ease-in-out infinite;
+}
+
+.why-choose-visual__line {
+  animation: why-choose-glow 3s ease-in-out infinite 0.2s;
+}
+
+.why-choose-visual__icon {
+  animation: why-choose-float 5s ease-in-out infinite;
+}
+
+.why-choose-visual__icon--top { animation-delay: 0s; }
+.why-choose-visual__icon--bottom { animation-delay: 1.2s; }
+.why-choose-visual__icon--left { animation-delay: 0.6s; }
+.why-choose-visual__icon--right { animation-delay: 1.8s; }
+
+@keyframes why-choose-pulse {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+
+@keyframes why-choose-glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes why-choose-float {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-4px) scale(1.08); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .why-choose-visual {
+    max-width: 280px;
+  }
+}
