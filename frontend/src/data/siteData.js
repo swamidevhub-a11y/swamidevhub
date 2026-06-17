@@ -26,15 +26,6 @@ export const navLinks = [
   { name: "Contact", path: "/contact" }
 ];
 
-export const techStack = [
-  { name: "HTML", icon: "Code2", color: "from-orange-500 to-red-500" },
-  { name: "CSS", icon: "Paintbrush", color: "from-blue-500 to-cyan-500" },
-  { name: "Javascript", icon: "FileCode", color: "from-yellow-500 to-amber-500" },
-  { name: "Wordpress", icon: "Layout", color: "from-blue-600 to-indigo-600" },
-  { name: "Shopify", icon: "ShoppingBag", color: "from-green-500 to-emerald-500" },
-  { name: "Python", icon: "Terminal", color: "from-blue-400 to-cyan-400" }
-];
-
 export const testimonials = [
   {
     name: "Rajesh Kumar",

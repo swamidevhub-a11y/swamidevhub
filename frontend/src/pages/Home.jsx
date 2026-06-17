@@ -157,7 +157,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Bento grid section for key highlights */}
+      {false && (
+        <>
+          {/* Bento grid section for key highlights */}
       <SectionEffect variant="bento" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
@@ -274,6 +276,8 @@ const Home = () => {
           </div>
         </div>
       </SectionEffect>
+        </>
+      )}
 
       {/* About/Intro Section */}
       <SectionEffect variant="about" className="py-20" data-testid="about-intro-section">
